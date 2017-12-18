@@ -200,6 +200,12 @@ RCT_EXPORT_MODULE(RNDeviceInfo)
     return ([format rangeOfString:@"a"].location == NSNotFound);
 }
 
+- (NSString*) idfa
+{
+    NSUUID *IDFA = [[ASIdentifierManager sharedManager] advertisingIdentifier];
+    return [IDFA UUIDString];
+}
+
 - (NSDictionary *)constantsToExport
 {
     UIDevice *currentDevice = [UIDevice currentDevice];
@@ -212,6 +218,7 @@ RCT_EXPORT_MODULE(RNDeviceInfo)
              @"apiLevel": @"not available",
              @"model": self.deviceName,
              @"brand": @"Apple",
+             @"idfa": self.idfa,
              @"deviceId": self.deviceId,
              @"deviceName": currentDevice.name,
              @"deviceLocale": self.deviceLocale,
