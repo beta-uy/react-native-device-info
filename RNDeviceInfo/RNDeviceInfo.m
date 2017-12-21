@@ -8,6 +8,7 @@
 
 #import "RNDeviceInfo.h"
 #import "DeviceUID.h"
+#import <AdSupport/ASIdentifierManager.h> 
 #if !(TARGET_OS_TV)
 #import <LocalAuthentication/LocalAuthentication.h>
 #endif
